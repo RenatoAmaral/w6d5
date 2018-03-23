@@ -1,16 +1,17 @@
 // NEW LIBRARY
 
 let Library = function( name, creator ) {
-  // A Library has a name and a creator (both strings)
-  // These are the only things required in order to create a music library
-  // A Library has many playlists (starts as an empty array)
-  // Playlist objects can be added to an instance of a library
+  // A LIBRARY HAS A NAME AND A CREATOR (BOTH STRINGS)
+  // THESE ARE THE ONLY THINGS REQUIRED IN ORDER TO CREATE A MUSIC LIBRARY
+  // A LIBRARY HAS MANY PLAYLISTS (STARTS AS AN EMPTY ARRAY)
+  // PLAYLIST OBJECTS CAN BE ADDED TO AN INSTANCE OF A LIBRARY
   this.name = name;
   this.creator = creator;
   this.playlists = []
 }
 
-//print statement saying the playlist name and number of tracks for the library
+//PRINT STATEMENT SAYING THE PLAYLIST NAME AND NUMBER OF TRACKS FOR THE LIBRARY
+
 Library.prototype.printPlaylists = function () {
   let playlists = this.playlists;
   let output = "";
@@ -37,13 +38,14 @@ Library.prototype.printPlaylists = function () {
 //NEW PLAYLIST
 
 let Playlist = function( name ) {
-  // Each Playlist has a name which is required upon creation
-  // A Playlist also has many tracks
+  // EACH PLAYLIST HAS A NAME WHICH IS REQUIRED UPON CREATION
+  // A PLAYLIST ALSO HAS MANY TRACKS
   this.name = name;
   this.tracks = [];
 }
 
-//method to give playlist average rating based on track ratings
+//METHOD TO GIVE PLAYLIST AVERAGE RATING BASED ON TRACK RATINGS
+
 Playlist.prototype.playlistRating = function() {
   const tracks = this.tracks;
   let playlistTrackTotalRating = 0;
@@ -55,7 +57,8 @@ Playlist.prototype.playlistRating = function() {
   return playlistTracksAvgRating
 }
 
-//method to give playlist total duration based on track durations
+//METHOD TO GIVE PLAYLIST TOTAL DURATION BASED ON TRACK DURATIONS
+
 Playlist.prototype.totalDuration = function () {
   const tracks = this.tracks;
   let playlistTracksTotalLength = 0;
@@ -66,7 +69,7 @@ Playlist.prototype.totalDuration = function () {
   return playlistTracksTotalLength
 }
 
-//print statement saying the track name , rating and duration for the playlist
+//PRINT STATEMENT SAYING THE TRACK NAME , RATING AND DURATION FOR THE PLAYLIST
 
 Playlist.prototype.printTracks = function () {
   let tracks = this.tracks
@@ -87,12 +90,12 @@ Playlist.prototype.printTracks = function () {
 // NEW TRACK
 
 let Track = function(title, rating, length) {
-  this.title = title; //required string
-  this.rating = rating; //required integer between 1 and 5
+  this.title = title; //REQUIRED STRING
+  this.rating = rating; //REQUIRED INTEGER BETWEEN 1 AND 5
   if (rating < 1 || rating > 5){
     console.log(title + " has an invalid rating");
   }
-  this.length = length //required integer in seconds
+  this.length = length //REQUIRED INTEGER IN SECONDS
 }
 
 // TRANSFORM SECOND IN MINUTES
@@ -100,6 +103,7 @@ let Track = function(title, rating, length) {
 let secondsToMinutes = function (length) {
 
   length = Number(length);
+
 
   let hours = Math.floor(length / 3600);
   let minutes = Math.floor(length % 3600 / 60);
@@ -164,8 +168,3 @@ console.log(newPlist1.printTracks());
 console.log(newLibrary1.printPlaylists());
 
 
-let secondsToMinutes2 =  function(time){
-    console.log(Math.floor(time / 60)+' minutes, '+Math.floor(time % 60)+' seconds');
-}
-
-secondsToMinutes2(666);
